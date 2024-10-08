@@ -1,0 +1,25 @@
+{{define "base"}}
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>{{template "title" .}}</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href='/'>Mon</a></h1>
+        </header>
+        <nav>
+            <a href='/sensors/'>Сенсоры</a>
+            <a href='/dashboards/'>Дашборды</a>
+            <a href='/notify/'>Каналы оповещения</a>
+            <a href='/settings/'>Настройки</a>
+            <a href='/api/'>API</a>
+        </nav>
+        <main>
+            {{template "main" .}}
+        </main>
+        {{template "footer" .}}
+    </body>
+</html>
+{{end}}

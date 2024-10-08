@@ -1,0 +1,6 @@
+/build/
+/logs/
+/data/
+/conf/
+.vscode
+dist/

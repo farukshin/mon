@@ -1,0 +1,12 @@
+{{template "base" .}}
+
+{{define "title"}}Сенсоры - Mon{{end}}
+
+{{define "main"}}
+
+<table border="1"><tr><td>UID</td><td>type</td><td>Name</td><td>Target</td><td>Time</td></tr>
+{{ range .Sensors }}
+<tr><td>{{ .UID }}</td><td>{{ .Kind }}</td><td>{{ .Name }}</td><td>{{ .Target }}</td><td>{{ .Time }}</td></tr>
+{{ end }}
+</table>
+{{end}}
