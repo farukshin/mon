@@ -24,11 +24,6 @@ func startWeb() {
 	}
 }
 
-type ViewData struct {
-	Title   string
-	Message string
-}
-
 func webHome(w http.ResponseWriter, r *http.Request) {
 
 	files := []string{

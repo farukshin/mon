@@ -47,6 +47,7 @@ func isArgsAll(ar string) bool {
 func start() {
 
 	app.init()
+	defer app.close()
 
 	jobs := make(chan *sensor)
 	results := make(chan sensorResultMessage)
@@ -214,4 +215,8 @@ func createAppCatalogs() error {
 		}
 	}
 	return nil
+}
+
+func (app *application) close() {
+	app.saveConfig()
 }
