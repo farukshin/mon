@@ -12,6 +12,7 @@ func startWeb() {
 	http.HandleFunc("/api/sensors/add", app.apiSensorsAdd)
 	http.HandleFunc("/api/sensors/edit", app.apiSensorsEdit)
 	http.HandleFunc("/api/sensors/delete", app.apiSensorsDelete)
+	http.HandleFunc("/api/sensors/list", app.apiSensorsList)
 
 	http.HandleFunc("/", webHome)
 	http.HandleFunc("/sensors", webSensors)

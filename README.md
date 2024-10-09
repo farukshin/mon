@@ -21,7 +21,7 @@ curl localhost:1616
 
 ``` bash
 ./mon sensors list
-./mon sensors add --type=httpcode --target=google.com --time=60s
+./mon sensors add --type=httpcode --target=google.com
 # > 27e92b12-0933-4b82-b2b9-96c1b64745a2
 ```
 
@@ -58,7 +58,7 @@ curl -X POST $MON_SRV/api/sensors/edit \
 
 ``` bash
 ./mon sensors list
-./mon sensors rm --uid=27e92b12-0933-4b82-b2b9-96c1b64745a2
+./mon sensors delete --uid=27e92b12-0933-4b82-b2b9-96c1b64745a2
 # > success
 ```
 

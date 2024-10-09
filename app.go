@@ -30,6 +30,8 @@ func (app *application) run() {
 		getVersion()
 	} else if os.Args[1] == "start" {
 		start()
+	} else if os.Args[1] == "sensors" {
+		cliSensors()
 	} else {
 		help_home()
 	}

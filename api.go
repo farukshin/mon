@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"reflect"
 )
 
 func (app *application) apiSensorsAdd(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +40,7 @@ func (app *application) apiSensorsEdit(w http.ResponseWriter, r *http.Request) {
 	}
 	for key, value := range data {
 		if key == "target" {
-			reflect.ValueOf(s).Elem().FieldByName("Target").SetString(value)
+			s.Target = value
 		}
 	}
 	json := "{ok:true, uid:" + s.UID + "}"
@@ -70,4 +69,15 @@ func (app *application) apiSensorsDelete(w http.ResponseWriter, r *http.Request)
 
 	json := "{ok:true}"
 	fmt.Fprintf(w, json)
+}
+
+func (app *application) apiSensorsList(w http.ResponseWriter, r *http.Request) {
+
+	var jsonData []byte
+	jsonData, err := json.Marshal(app.Sensors)
+	if err != nil {
+		fmt.Fprintf(w, "{ok:false}")
+		return
+	}
+	fmt.Fprintf(w, string(jsonData))
 }

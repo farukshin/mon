@@ -1,11 +1,10 @@
 package main
 
 import (
+	"crypto/rand"
 	"fmt"
 	"net/http"
 	"time"
-
-	"github.com/google/uuid"
 )
 
 type sensor struct {
@@ -35,9 +34,9 @@ type history struct {
 }
 
 func (app *application) getSensorByUID(uid string) *sensor {
-	for _, s := range app.Sensors {
-		if s.UID == uid {
-			return &s
+	for i, _ := range app.Sensors {
+		if app.Sensors[i].UID == uid {
+			return &app.Sensors[i]
 		}
 	}
 	return nil
@@ -76,9 +75,24 @@ func (sen *sensor) calcNewTic() {
 	//todo
 }
 
+func genUID() (string, error) {
+
+	b := make([]byte, 8)
+	_, err := rand.Read(b)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return "", err
+	}
+	uuid := fmt.Sprintf("%X", b[0:8])
+
+	return uuid, nil
+}
+
 func (app *application) addSensor(s *sensor) {
-	id := uuid.New()
-	s.UID = id.String()
+	uid, _ := genUID()
+	//id := uuid.New()
+	//s.UID = id.String()
+	s.UID = uid
 	app.Sensors = append(app.Sensors, *s)
 }
 
