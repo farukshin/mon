@@ -6,7 +6,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -49,7 +51,14 @@ func isArgsAll(ar string) bool {
 func start() {
 
 	app.init()
-	defer app.close()
+
+	c := make(chan os.Signal)
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+	go func() {
+		<-c
+		app.close()
+		os.Exit(1)
+	}()
 
 	jobs := make(chan *sensor)
 	results := make(chan sensorResultMessage)
