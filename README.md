@@ -1,5 +1,12 @@
 # Mon
 
+![GitHub Release](https://img.shields.io/github/v/release/farukshin/mon)
+![GitHub build status](https://github.com/farukshin/mon/actions/workflows/mon.yml/badge.svg)
+![Codecov](https://img.shields.io/codecov/c/github/farukshin/mon)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/farukshin/mon/total?color=green)
+![GitHub License](https://img.shields.io/github/license/farukshin/mon)
+
+
 Система мониторинга
 
 ## Установка и запуск
