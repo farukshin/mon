@@ -7,15 +7,17 @@
 ![GitHub License](https://img.shields.io/github/license/farukshin/mon)
 
 
-Система мониторинга
+Monitoring system
 
 * [Installation](#Installation)
 * * [Install from Releases](#InstallationFromReleases)
 * * [Install from Source](#InstallationFromSource)
+* [Usage](#Usage)
 * [Sensors](#Sensors)
 * * [Add Sensor](#AddSensor)
 * * [Edit Sensor](#EditSensor)
 * * [Delete Sensor](#DeleteSensor)
+* [License](#License)
 
 
 <a name="Installation"></a> 
@@ -49,16 +51,25 @@ $ curl -sL "https://github.com/farukshin/mon/releases/download/${VERSION}/mon_${
 
 ``` bash
 $ tar -zxvf mon.tar.gz mon
+./mon --versiosn
 ```
 
 <a name="InstallationFromSource"></a> 
 
-## Install from source
+### Install from source
 
 ``` bash
 git clone https://github.com/farukshin/mon.git
 cd mon
 go build .
+./mon --versiosn
+```
+
+<a name="Usage"></a> 
+
+## Usage
+
+``` bash
 ./mon start
 ```
 
@@ -66,9 +77,13 @@ go build .
 curl localhost:1616
 ```
 
+<a name="Sensors"></a> 
+
+## Sensors
+
 <a name="AddSensor"></a> 
 
-## Add Sensor
+### Add Sensor
 
 From CLI
 
@@ -89,7 +104,7 @@ curl -X POST $MON_SRV/api/sensors/add \
 
 <a name="EditSensor"></a> 
 
-## Edit sensor
+### Edit sensor
 
 From CLI
 
@@ -110,7 +125,7 @@ curl -X POST $MON_SRV/api/sensors/edit \
 
 <a name="DeleteSensor"></a> 
 
-## Delete sensor
+### Delete sensor
 
 From CLI
 
@@ -128,3 +143,10 @@ curl -X POST $MON_SRV/api/sensors/delete \
     -d '{"uid":"7e92b12-0933-4b82-b2b9-96c1b64745a2"}'
 # > {ok:true}
 ```
+
+<a name="License"></a> 
+
+## License
+
+Mon is released under the MIT License. See [LICENSE.md](github.com/farukshin/mon/blob/main/LICENSE.md)
+
