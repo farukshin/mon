@@ -83,7 +83,7 @@ curl localhost:1616
 
 <a name="AddSensor"></a> 
 
-### Add Sensor
+### Add sensor
 
 From CLI
 
@@ -148,5 +148,5 @@ curl -X POST $MON_SRV/api/sensors/delete \
 
 ## License
 
-Mon is released under the MIT License. See [LICENSE.md](github.com/farukshin/mon/blob/main/LICENSE.md)
+Mon is released under the MIT License. See [LICENSE.md](https://github.com/farukshin/mon/blob/main/LICENSE.md)
 
