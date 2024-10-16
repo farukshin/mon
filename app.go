@@ -6,7 +6,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -30,6 +32,8 @@ func (app *application) run() {
 		getVersion()
 	} else if os.Args[1] == "start" {
 		start()
+	} else if os.Args[1] == "sensors" {
+		cliSensors()
 	} else {
 		help_home()
 	}
@@ -47,6 +51,14 @@ func isArgsAll(ar string) bool {
 func start() {
 
 	app.init()
+
+	c := make(chan os.Signal)
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+	go func() {
+		<-c
+		app.close()
+		os.Exit(1)
+	}()
 
 	jobs := make(chan *sensor)
 	results := make(chan sensorResultMessage)
@@ -214,4 +226,8 @@ func createAppCatalogs() error {
 		}
 	}
 	return nil
+}
+
+func (app *application) close() {
+	app.saveConfig()
 }

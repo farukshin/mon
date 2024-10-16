@@ -1,0 +1,32 @@
+@Host = localhost
+@Port = 1616
+
+### Добавление сенсора
+
+POST /api/sensors/add HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+{
+    "kind":"httpcode",
+    "target":"google.com",
+     "time":60
+}
+
+### Удаление сенсора
+
+POST /api/sensors/delete HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+{
+    "uid":"6811e75c-1c9b-4dc2-a09a-129d869a65d6"
+}
+
+### Изменение сенсора
+
+POST /api/sensors/edit HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+{
+    "uid":"a438ef0e-f7dc-4d1f-a519-743825fdc430",
+    "target":"farukshin.com"
+}
