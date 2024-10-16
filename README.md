@@ -13,7 +13,7 @@
 * * [Install from Releases](#InstallationFromReleases)
 * * [Install from Source](#InstallationFromSource)
 * [Sensors](#Sensors)
-* * [Add Sensor](#DeleteSensor)
+* * [Add Sensor](#AddSensor)
 * * [Edit Sensor](#EditSensor)
 * * [Delete Sensor](#DeleteSensor)
 
@@ -66,7 +66,7 @@ go build .
 curl localhost:1616
 ```
 
-<a name="AddSensore"></a> 
+<a name="AddSensor"></a> 
 
 ## Add Sensor
 
@@ -87,7 +87,7 @@ curl -X POST $MON_SRV/api/sensors/add \
 # > {ok:true, uid:"27e92b12-0933-4b82-b2b9-96c1b64745a2"}
 ```
 
-<a name="EditSensore"></a> 
+<a name="EditSensor"></a> 
 
 ## Edit sensor
 
