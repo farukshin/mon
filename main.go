@@ -1,12 +1,10 @@
 package main
 
-var app application
+var app = &application{
+	version: "v0.0.3",
+}
 
 func main() {
-
-	app := &application{
-		version: "v0.0.1",
-	}
 
 	app.run()
 }

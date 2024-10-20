@@ -8,8 +8,9 @@ import (
 )
 
 type Configs struct {
-	Version string   `json:"version"`
-	Sensors []sensor `json:"sensors"`
+	Version       string         `json:"version"`
+	Sensors       []sensor       `json:"sensors"`
+	Notifications []notification `json:"notification"`
 }
 
 func (app *application) init() error {
@@ -70,6 +71,9 @@ func (app *application) saveConfig() error {
 	for _, sen := range app.Sensors {
 		conf.Sensors = append(conf.Sensors, sen)
 	}
+	for _, ntf := range app.Notifications {
+		conf.Notifications = append(conf.Notifications, ntf)
+	}
 	var jsonData []byte
 	jsonData, err := json.Marshal(conf)
 	if err != nil {
@@ -91,6 +95,9 @@ func (app *application) loadConfig() error {
 	}
 	for _, s := range conf.Sensors {
 		app.Sensors = append(app.Sensors, s)
+	}
+	for _, s := range conf.Notifications {
+		app.Notifications = append(app.Notifications, s)
 	}
 	return nil
 }

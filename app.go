@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"net/http"
 	"os"
 	"os/signal"
 	"strings"
@@ -175,7 +174,6 @@ func testSensors() []sensor {
 		Target: "http://localhost:1717",
 		Time:   60,
 		Life:   1000,
-		//successStatus: true,
 		Expect: sensorResult{
 			resInt: 200,
 		},
@@ -187,7 +185,6 @@ func testSensors() []sensor {
 		Target: "http://farukshin.com",
 		Time:   60,
 		Life:   1000,
-		//successStatus: true,
 		Expect: sensorResult{
 			resInt: 200,
 		},
@@ -196,19 +193,6 @@ func testSensors() []sensor {
 	res = append(res, sen2)
 	return res
 
-}
-
-func sendMessageTG(msg string) {
-
-	MON_TELEGRAM_BOT_TOKEN := os.Getenv("MON_TELEGRAM_BOT_TOKEN")
-	MON_TELEGRAM_CHAT_ID := os.Getenv("MON_TELEGRAM_CHAT_ID")
-
-	if MON_TELEGRAM_BOT_TOKEN == "" || MON_TELEGRAM_CHAT_ID == "" {
-		return
-	}
-	url := "https://api.telegram.org/bot" + MON_TELEGRAM_BOT_TOKEN + "/sendMessage?chat_id=" + MON_TELEGRAM_CHAT_ID + "&disable_web_page_preview=1&text=" + msg
-	resp, _ := http.Get(url)
-	defer resp.Body.Close()
 }
 
 func createAppCatalogs() error {

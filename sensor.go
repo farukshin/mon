@@ -90,8 +90,6 @@ func genUID() (string, error) {
 
 func (app *application) addSensor(s *sensor) {
 	uid, _ := genUID()
-	//id := uuid.New()
-	//s.UID = id.String()
 	s.UID = uid
 	app.Sensors = append(app.Sensors, *s)
 }

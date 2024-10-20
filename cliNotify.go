@@ -1,7 +1,11 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
 	"os"
 	"strings"
 )
@@ -43,14 +47,75 @@ func notifyHomeStr() string {
 }
 
 func cliNotifyList() {
-
+	fmt.Println(cliNotifyListStr())
 }
+
+func cliNotifyListStr() string {
+	resp, err := http.Get("http://localhost:1616/api/notify/list")
+	if err != nil {
+		return ""
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, err := io.ReadAll(resp.Body)
+		if err != nil {
+			return ""
+		}
+		var data []notification
+		err = json.Unmarshal(bodyBytes, &data)
+		if err != nil {
+			return ""
+		}
+		var sb strings.Builder
+		for _, s := range data {
+			sb.WriteString(fmt.Sprintf("%s %s %s\n", s.UID, s.Type, s.Name))
+		}
+		return sb.String()
+	}
+	return ""
+}
+
 func cliNotifyAdd() {
+	j := argsToJSON(os.Args[3:])
+	data := []byte(j)
+	r := bytes.NewReader(data)
+	resp, err := http.Post("http://localhost:1616/api/notify/add", "application/json", r)
+	if err != nil {
+		return
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		fmt.Println(string(bodyBytes))
+	}
 
 }
 func cliNotifyDelete() {
+	j := argsToJSON(os.Args[3:])
+	data := []byte(j)
+	r := bytes.NewReader(data)
+	resp, err := http.Post("http://localhost:1616/api/notify/delete", "application/json", r)
+	if err != nil {
+		return
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		fmt.Println(string(bodyBytes))
+	}
 
 }
 func cliNotifyEdit() {
-
+	j := argsToJSON(os.Args[3:])
+	data := []byte(j)
+	r := bytes.NewReader(data)
+	resp, err := http.Post("http://localhost:1616/api/notify/edit", "application/json", r)
+	if err != nil {
+		return
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		fmt.Println(string(bodyBytes))
+	}
 }
