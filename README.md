@@ -4,7 +4,7 @@
 ![GitHub build status](https://github.com/farukshin/mon/actions/workflows/mon.yml/badge.svg)
 ![Codecov](https://img.shields.io/codecov/c/github/farukshin/mon)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/farukshin/mon/total?color=green)
-[![GitHub License](https://img.shields.io/github/license/farukshin/mon)](github.com/farukshin/mon/blob/main/LICENSE.md)
+[![GitHub License](https://img.shields.io/github/license/farukshin/mon)](https://github.com/farukshin/mon/blob/main/LICENSE.md)
 [![Go Report Card](https://goreportcard.com/badge/github.com/farukshin/mon)](https://goreportcard.com/report/github.com/farukshin/mon)
 [![Go Reference](https://pkg.go.dev/badge/github.com/farukshin/mon.svg)](https://pkg.go.dev/github.com/farukshin/mon)
 
@@ -150,5 +150,5 @@ curl -X POST $MON_SRV/api/sensors/delete \
 
 ## License
 
-Mon is released under the MIT License. See [LICENSE.md](github.com/farukshin/mon/blob/main/LICENSE.md)
+Mon is released under the MIT License. See [LICENSE.md](https://github.com/farukshin/mon/blob/main/LICENSE.md)
 
