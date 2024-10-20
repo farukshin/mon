@@ -1,11 +1,12 @@
 # Mon
 
-![GitHub Release](https://img.shields.io/github/v/release/farukshin/mon)
+[![GitHub Release](https://img.shields.io/github/v/release/farukshin/mon)](https://github.com/farukshin/mon/releases)
 ![GitHub build status](https://github.com/farukshin/mon/actions/workflows/mon.yml/badge.svg)
 ![Codecov](https://img.shields.io/codecov/c/github/farukshin/mon)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/farukshin/mon/total?color=green)
-![GitHub License](https://img.shields.io/github/license/farukshin/mon)
-![Go report](https://goreportcard.com/badge/github.com/farukshin/mon)
+[![GitHub License](https://img.shields.io/github/license/farukshin/mon)](github.com/farukshin/mon/blob/main/LICENSE.md)
+[![Go Report Card](https://goreportcard.com/badge/github.com/farukshin/mon)](https://goreportcard.com/report/github.com/farukshin/mon)
+[![Go Reference](https://pkg.go.dev/badge/github.com/farukshin/mon.svg)](https://pkg.go.dev/github.com/farukshin/mon)
 
 
 Monitoring system
