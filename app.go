@@ -13,15 +13,15 @@ import (
 )
 
 type application struct {
-	errorLog    *log.Logger
-	infoLog     *log.Logger
-	version     string
-	ConfCatalog string
-	ConfFile    string
-	DataCatalog string
-	LogCatalog  string
-	Configs     Configs
-	Sensors     []sensor
+	errorLog      *log.Logger
+	infoLog       *log.Logger
+	version       string
+	ConfCatalog   string
+	ConfFile      string
+	DataCatalog   string
+	LogCatalog    string
+	Sensors       []sensor
+	Notifications []notification
 }
 
 func (app *application) run() {
@@ -34,6 +34,8 @@ func (app *application) run() {
 		start()
 	} else if os.Args[1] == "sensors" {
 		cliSensors()
+	} else if os.Args[1] == "notify" {
+		cliNotify()
 	} else {
 		help_home()
 	}
