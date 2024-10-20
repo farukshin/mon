@@ -5,6 +5,7 @@
 ![Codecov](https://img.shields.io/codecov/c/github/farukshin/mon)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/farukshin/mon/total?color=green)
 ![GitHub License](https://img.shields.io/github/license/farukshin/mon)
+![Go report](https://goreportcard.com/badge/github.com/farukshin/mon)
 
 
 Monitoring system
