@@ -1,3 +1,3 @@
-module farukshin.com/mon
+module github.com/farukshin/mon
 
-go 1.22.4
+go 1.20

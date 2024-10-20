@@ -1,22 +1,24 @@
 # Mon
 
-![GitHub Release](https://img.shields.io/github/v/release/farukshin/mon)
+[![GitHub Release](https://img.shields.io/github/v/release/farukshin/mon)](https://github.com/farukshin/mon/releases)
 ![GitHub build status](https://github.com/farukshin/mon/actions/workflows/mon.yml/badge.svg)
 ![Codecov](https://img.shields.io/codecov/c/github/farukshin/mon)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/farukshin/mon/total?color=green)
-![GitHub License](https://img.shields.io/github/license/farukshin/mon)
+[![GitHub License](https://img.shields.io/github/license/farukshin/mon)](https://github.com/farukshin/mon/blob/main/LICENSE.md)
+[![Go Report Card](https://goreportcard.com/badge/github.com/farukshin/mon)](https://goreportcard.com/report/github.com/farukshin/mon)
+[![Go Reference](https://pkg.go.dev/badge/github.com/farukshin/mon.svg)](https://pkg.go.dev/github.com/farukshin/mon)
 
 
 Monitoring system
 
 * [Installation](#Installation)
 * * [Install from Releases](#InstallationFromReleases)
-* * [Install from Source](#InstallationFromSource)
+* * [Install from source](#InstallationFromSource)
 * [Usage](#Usage)
 * [Sensors](#Sensors)
-* * [Add Sensor](#AddSensor)
-* * [Edit Sensor](#EditSensor)
-* * [Delete Sensor](#DeleteSensor)
+* * [Add sensor](#AddSensor)
+* * [Edit sensor](#EditSensor)
+* * [Delete sensor](#DeleteSensor)
 * [License](#License)
 
 
@@ -31,27 +33,27 @@ Monitoring system
 1. Get the [latest release](https://github.com/farukshin/mon/releases) version.
 
 ``` bash
-$ VERSION=$(curl -s "https://api.github.com/repos/farukshin/mon/releases/latest" | jq -r '.tag_name')
+VERSION=$(curl -s "https://api.github.com/repos/farukshin/mon/releases/latest" | jq -r '.tag_name')
 ```
 or set a specific version:
 
 ``` bash
-$ VERSION=vX.Y.Z   # Version number with a leading v
+VERSION=vX.Y.Z   # Version number with a leading v
 ```
 
 2. Download the release.
 
 ``` bash
-$ OS=Linux       # or Darwin, Windows
-$ ARCH=x86_64    # or arm64, x86_64, armv6, i386, s390x
-$ curl -sL "https://github.com/farukshin/mon/releases/download/${VERSION}/mon_${OS}_${ARCH}.tar.gz" > mon.tar.gz
+OS=Linux       # or Darwin, Windows
+ARCH=x86_64    # or arm64, x86_64, armv6, i386, s390x
+curl -sL "https://github.com/farukshin/mon/releases/download/${VERSION}/mon_${OS}_${ARCH}.tar.gz" > mon.tar.gz
 ```
 
 3. Unpack it in the PATH.
 
 ``` bash
-$ tar -zxvf mon.tar.gz mon
-./mon --versiosn
+tar -zxvf mon.tar.gz mon
+./mon --version
 ```
 
 <a name="InstallationFromSource"></a> 
@@ -62,7 +64,7 @@ $ tar -zxvf mon.tar.gz mon
 git clone https://github.com/farukshin/mon.git
 cd mon
 go build .
-./mon --versiosn
+./mon --version
 ```
 
 <a name="Usage"></a> 
@@ -83,7 +85,7 @@ curl localhost:1616
 
 <a name="AddSensor"></a> 
 
-### Add Sensor
+### Add sensor
 
 From CLI
 
@@ -148,5 +150,5 @@ curl -X POST $MON_SRV/api/sensors/delete \
 
 ## License
 
-Mon is released under the MIT License. See [LICENSE.md](github.com/farukshin/mon/blob/main/LICENSE.md)
+Mon is released under the MIT License. See [LICENSE.md](https://github.com/farukshin/mon/blob/main/LICENSE.md)
 

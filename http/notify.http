@@ -1,0 +1,36 @@
+@Host = localhost
+@Port = 1616
+
+### Список уведомлений
+
+GET /api/notify/list HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+### Добавление уведомления
+
+POST /api/notify/add HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+{
+    "type":"telegram",
+    "name":"В канал телеграмм"
+}
+
+### Удаление уведомления
+
+POST /api/notify/delete HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+{
+    "uid":"47CBBFF3C0C90149"
+}
+
+### Изменение уведомления
+
+POST /api/notify/edit HTTP/1.1
+Host: {{Host}}:{{Port}}
+
+{
+    "uid":"854C3F204831A8E9",
+    "name":"tg"
+}

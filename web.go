@@ -9,6 +9,11 @@ import (
 
 func startWeb() {
 
+	http.HandleFunc("/api/notify/add", app.apiNotifyAdd)
+	http.HandleFunc("/api/notify/edit", app.apiNotifyEdit)
+	http.HandleFunc("/api/notify/delete", app.apiNotifyDelete)
+	http.HandleFunc("/api/notify/list", app.apiNotifyList)
+
 	http.HandleFunc("/api/sensors/add", app.apiSensorsAdd)
 	http.HandleFunc("/api/sensors/edit", app.apiSensorsEdit)
 	http.HandleFunc("/api/sensors/delete", app.apiSensorsDelete)
