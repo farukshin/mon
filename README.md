@@ -46,13 +46,21 @@ VERSION=vX.Y.Z   # Version number with a leading v
 ``` bash
 OS=Linux       # or Darwin, Windows
 ARCH=x86_64    # or arm64, x86_64, armv6, i386, s390x
-curl -sL "https://github.com/farukshin/mon/releases/download/${VERSION}/mon_${OS}_${ARCH}.tar.gz" > mon.tar.gz
+MON_FILE=mon_${OS}_${ARCH}.tar.gz
+curl -sL "https://github.com/farukshin/mon/releases/download/${VERSION}/${MON_FILE}" > ${MON_FILE}
 ```
 
-3. Unpack it in the PATH.
+3. Verify the signature.
 
 ``` bash
-tar -zxvf mon.tar.gz mon
+curl -sL https://github.com/farukshin/mon/releases/download/${VERSION}/mon_checksums.txt > mon_checksums.txt
+shasum --check --ignore-missing ./mon_checksums.txt
+```
+
+4. Unpack it in the PATH.
+
+``` bash
+tar -zxvf ${MON_FILE} mon
 ./mon --version
 ```
 
